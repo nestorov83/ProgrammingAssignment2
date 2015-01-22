@@ -1,7 +1,9 @@
 
-## makeCahceMatrix and cacheSolve are a pair of functions that invert a matrix and cache it in the environment of makeCahceMatrix
-## this allows calling the inverted matrix from the cache if it has been calculated already,  otherwise it will be solved from the cacheSolve function. 
-
+## makeCahceMatrix and cacheSolve are a pair of functions that invert a matrix and cache it 
+## the caching takes place in the environment of makeCahceMatrix, which is a new instance 
+## for any given matrix (i.e. defining a new "cached matrix" will create a new envrironment).
+## This allows calling the inverted matrix from the cache if it has been calculated already,
+## otherwise it will be solved in cacheSolve, which gets the data from makeCachedmatrix.
 
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -30,5 +32,4 @@ cacheSolve <- function(x, ...) {
   m <- solve(data, ...)
   x$setSolve(m)
   m
-        ## Return a matrix that is the inverse of 'x'
 }
